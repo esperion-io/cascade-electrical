@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade Electrical - Trusted Auckland Electricians</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Add padding for fixed header */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .cascade-red {
+            color: #E73337;
+        }
+        .cascade-red-bg {
+            background-color: #E73337;
+        }
+        .cascade-dark {
+            color: #0F1A2A;
+        }
+        .cascade-dark-bg {
+            background-color: #0F1A2A;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(15, 26, 42, 0.8), rgba(15, 26, 42, 0.8)), url('https://cdn1.genspark.ai/user-upload-image/6_generated/f7d766f8-29bd-4fed-9a93-a75bda7c76ca_wm') no-repeat center center;
+            background-size: cover;
+            min-height: 90vh;
+        }
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .contact-form input,
+        .contact-form textarea {
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #E73337;
+            outline: none;
+        }
+        .btn-primary {
+            background-color: #E73337;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #d42d31;
+            transform: translateY(-2px);
+        }
+        .cta-section {
+            background: linear-gradient(rgba(15, 26, 42, 0.9), rgba(15, 26, 42, 0.9)), url('https://cdn1.genspark.ai/user-upload-image/6_generated/4adcf512-2ce2-4a01-85bc-539642e77ea4_wm') no-repeat center center;
+            background-size: cover;
+        }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 999 !important;
+            background-color: white !important;
+        }
+        #mobileMenu {
+            z-index: 1000 !important;
+        }
+        .sticky-header .nav-link {
+            position: relative;
+            display: inline-block;
+        }
+        .sticky-header .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #E73337;
+            transition: width 0.3s ease;
+        }
+        .sticky-header .nav-link:hover::after {
+            width: 100%;
+        }
+        .sticky-header #mobileMenuBtn {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .sticky-header #mobileMenuBtn {
+                display: block !important;
+            }
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(231, 51, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .service-icon i {
+            color: #E73337;
+            font-size: 24px;
+        }
+        .pulsing-btn {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(231, 51, 55, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(231, 51, 55, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(231, 51, 55, 0);
+            }
+        }
+        .experience-badge {
+            position: relative;
+        }
+        .zoom-on-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header bg-white shadow-md">
+        <div class="container mx-auto py-4 px-4 md:px-6">
+            <nav class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center">
+                        <img src="assets/Cascade Electrical Logo (4).svg" alt="Cascade Electrical Logo" class="h-14">
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 hover:text-red-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center justify-between flex-grow ml-10">
+                    <div class="flex space-x-8">
+                        <a href="#" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-all relative">Home</a>
+                        <a href="#who-we-are" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-all relative">Who We Are</a>
+                        <a href="#what-we-do" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-all relative">What We Do</a>
+                        <a href="#why-choose-us" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-all relative">Why Choose Us?</a>
+                        <a href="#team" class="nav-link font-medium text-gray-700 hover:text-red-600 transition-all relative">Team</a>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <a href="tel:0272272233" class="flex items-center text-gray-700 hover:text-red-600 transition-all">
+                            <i class="fas fa-phone-alt mr-2 text-red-600"></i>
+                            <span class="font-medium">027 227 2233</span>
+                        </a>
+                        <a href="#contact" class="btn-primary px-6 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform duration-300">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu (Hidden by default) -->
+                <div id="mobileMenu" class="fixed inset-0 bg-white z-50 lg:hidden hidden">
+                    <div class="container mx-auto px-4 py-6">
+                        <div class="flex justify-between items-center mb-8">
+                            <a href="#" class="flex items-center">
+                                <img src="assets/Cascade Electrical Logo (4).svg" alt="Cascade Electrical Logo" class="h-12">
+                            </a>
+                            <button id="closeMenuBtn" class="text-gray-700 hover:text-red-600 focus:outline-none">
+                                <i class="fas fa-times text-2xl"></i>
+                            </button>
+                        </div>
+                        <div class="flex flex-col space-y-6">
+                            <a href="#" class="text-xl font-medium text-gray-800 hover:text-red-600 transition-all">Home</a>
+                            <a href="#who-we-are" class="text-xl font-medium text-gray-800 hover:text-red-600 transition-all">Who We Are</a>
+                            <a href="#what-we-do" class="text-xl font-medium text-gray-800 hover:text-red-600 transition-all">What We Do</a>
+                            <a href="#why-choose-us" class="text-xl font-medium text-gray-800 hover:text-red-600 transition-all">Why Choose Us?</a>
+                            <a href="#team" class="text-xl font-medium text-gray-800 hover:text-red-600 transition-all">Team</a>
+                            <div class="pt-6 border-t border-gray-200">
+                                <a href="tel:0272272233" class="flex items-center text-xl font-medium text-gray-800 hover:text-red-600 mb-6">
+                                    <i class="fas fa-phone-alt mr-3 text-red-600"></i>
+                                    027 227 2233
+                                </a>
+                                <a href="#contact" class="btn-primary w-full text-center px-6 py-4 rounded-full font-semibold shadow-lg">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center">
+        <div class="container mx-auto px-4 md:px-0 py-20">
+            <div class="md:w-3/4 lg:w-1/2">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Powered By Integrity<br>Wired For Success</h1>
+                <p class="text-white text-lg md:text-xl mb-8">We provide electrical work from residential to commercial and anything in-between. Cascade offer the best advice, able to evolve, and work with you to ensure a job well done.</p>
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <div class="flex items-center bg-white bg-opacity-10 rounded-full px-4 py-2 text-white">
+                        <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                        Commercial
+                    </div>
+                    <div class="flex items-center bg-white bg-opacity-10 rounded-full px-4 py-2 text-white">
+                        <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                        Residential
+                    </div>
+                    <div class="flex items-center bg-white bg-opacity-10 rounded-full px-4 py-2 text-white">
+                        <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                        Maintenance
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="btn-primary text-center px-8 py-4 rounded-full font-semibold text-lg shadow-xl">Get a Free Quote</a>
+                    <a href="tel:0272272233" class="flex items-center justify-center bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:bg-gray-100 transition duration-300">
+                        <i class="fas fa-phone-alt mr-2 text-red-600"></i>
+                        Call 027 227 2233
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Bar -->
+    <section class="cascade-red-bg py-4">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-white mb-4 md:mb-0">
+                    <p class="text-lg font-medium">Need electrical work done fast and reliably?</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:0272272233" class="flex items-center justify-center bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300">
+                        <i class="fas fa-phone-alt mr-2 text-red-600"></i>
+                        Call Now: 027 227 2233
+                    </a>
+                    <a href="#contact" class="flex items-center justify-center bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-700 transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="who-we-are" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <img src="assets/who we are.png" alt="Professional electrician working in modern home" class="rounded-xl shadow-2xl zoom-on-hover">
+                </div>
+                <div class="md:w-1/2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-users text-red-600"></i>
+                        </div>
+                        <h2 class="text-xl font-semibold text-red-600">WHO WE ARE</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">A Full Service Electrical Company In Auckland</h3>
+                    <p class="text-gray-600 text-lg mb-6">Cascade Electrical is an Auckland based full service electrical company delivering expert, high quality workmanship, and honest, genuine advice.</p>
+                    <p class="text-gray-600 text-lg mb-8">With over 20 years in the industry, you can trust our highly experienced team to provide a safe and reliable service, on time and on budget, where the customers full satisfaction is of the utmost importance.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="#what-we-do" class="btn-primary px-8 py-4 rounded-lg font-semibold">Our Services</a>
+                        <div class="experience-badge flex items-center px-5 py-3 bg-gray-100 rounded-lg shadow-md">
+                            <div class="w-14 h-14 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-certificate text-2xl text-red-600"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Industry Experience</p>
+                                <p class="text-2xl font-bold text-gray-800">20 Years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="what-we-do" class="py-20">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Electrical Services</h2>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">We provide comprehensive electrical solutions tailored to your specific needs, whether it's residential, commercial, or maintenance requirements.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Commercial Service -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/f4ea49f8-d0c8-4918-a9fa-319a54c2959f_wm" alt="Commercial Electrical Services" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-medium">Commercial</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Commercial</h3>
+                        <p class="text-gray-600 mb-6">Specialising in commercial installations including power, lighting control management systems, retail fit out and structured data cabling; we provide the highest quality service.</p>
+                        <a href="#contact" class="flex items-center text-red-600 font-semibold hover:text-red-700 transition duration-300">
+                            <span>Request a Quote</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Residential Service -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268314767209418752/7780a12b-ae1b-4af7-9b5b-279e213e8127.png" alt="Residential Electrical Services" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-medium">Residential</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Residential</h3>
+                        <p class="text-gray-600 mb-6">From large scale renovations to installing a single light fitting, we provide electrical solutions and troubleshooting all within your budget and timeline.</p>
+                        <a href="#contact" class="flex items-center text-red-600 font-semibold hover:text-red-700 transition duration-300">
+                            <span>Request a Quote</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Maintenance Service -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/6_generated/4adcf512-2ce2-4a01-85bc-539642e77ea4_wm" alt="Maintenance Electrical Services" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-red-600 text-white px-4 py-1 rounded-full text-sm font-medium">Maintenance</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Maintenance</h3>
+                        <p class="text-gray-600 mb-6">We offer seamless electrical repairs, servicing and maintenance solutions. From faults in your property, emergency lighting systems to Test and Tagging electrical equipment, we are here.</p>
+                        <a href="#contact" class="flex items-center text-red-600 font-semibold hover:text-red-700 transition duration-300">
+                            <span>Request a Quote</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#contact" class="btn-primary inline-block px-8 py-4 rounded-lg font-semibold shadow-lg text-lg">Schedule a Service Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-20 cascade-dark-bg text-white">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-red-600 bg-opacity-30 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-award text-red-600"></i>
+                        </div>
+                        <h2 class="text-xl font-semibold text-red-500">WHY CHOOSE US?</h2>
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6">Outstanding Residential & Commercial Services</h3>
+                    <p class="text-gray-300 text-lg mb-6">Cascade Electrical is committed to satisfying and exceeding its customers expectations. From the electrical work that we perform to the entire customer experience, we are here for you.</p>
+                    <p class="text-gray-300 text-lg mb-8">When we give you a price, we stick to it. When we give you a timeline, we stick to it. When we are in your home, business or on site, we are your guest, and we reciprocate with courtesy and respect. You can trust our electricians to work safely and efficiently. With experience in commercial, residential, offices, retail, schools, outdoor lighting, and more, we have the expertise to meet your needs.</p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-check text-red-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Licensed & Insured</h4>
+                                <p class="text-gray-400">Fully qualified electricians</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-check text-red-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Honest Pricing</h4>
+                                <p class="text-gray-400">No hidden costs or fees</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-check text-red-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Timely Service</h4>
+                                <p class="text-gray-400">We respect your schedule</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-3 mt-1">
+                                <i class="fas fa-check text-red-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Quality Work</h4>
+                                <p class="text-gray-400">Excellence in every job</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary inline-block px-8 py-4 rounded-lg font-semibold shadow-lg">Get in Touch Today</a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268315468333465600/9f4b2a52-5a9f-4989-8122-30ce9a43c1a6.png" alt="Professional electrician consulting with client" class="rounded-xl shadow-2xl zoom-on-hover">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                    <span class="text-2xl font-bold text-red-600">20</span>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500">Years of</p>
+                                    <p class="font-bold text-gray-800 text-xl">Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-16">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started with Your Electrical Project?</h2>
+                <p class="text-lg mb-8">Whether you need residential, commercial or maintenance services, our team is ready to help you with professional electrical solutions.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contact" class="btn-primary px-8 py-4 rounded-lg font-semibold shadow-lg">Request a Quote</a>
+                    <a href="tel:0272272233" class="flex items-center justify-center bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300">
+                        <i class="fas fa-phone-alt mr-2 text-red-600"></i>
+                        027 227 2233
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-users text-red-600"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-red-600">MEET THE TEAM</h2>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Tradies You Can Rely On</h3>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268317136286535680/da2322e0-a5da-4d4d-9092-f12f876bfcd3.png" alt="Karl working on residential electrical installation in Auckland" class="rounded-xl shadow-lg zoom-on-hover">
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <p class="text-gray-600 text-lg mb-6">Of Te Rarawa, Ngpuhi decent, Karl is born and bred in Aotearoa. Karl spent several years during his high school holidays working for THORN Lighting NZ, manufacturing light fittings and decided to become an electrician.</p>
+                        <p class="text-gray-600 text-lg mb-6">Karl spent over 15 years with Coll Electrical where he delivered several high value residential new builds. He was the project manager of multiple commercial jobs including Pak n Save Clendon, multiple New World stores across Auckland, and an Aotea Square infrastructure upgrade. He also spent his last 3 years as the Manager of the Coll Electrical Service Department, where he supported Watercare, Dress-Smart, and multiple property managers with their electrical requirements.</p>
+                        <p class="text-gray-600 text-lg mb-6">Karl also spent 3 years working for Sunshine Village Ski Resort, Canada, as part of the electrical maintenance team. He is a Qualified Inspector under EWRB and also holds an Auckland Council IQP licence for emergency lighting.</p>
+                        
+                        <div class="flex items-center">
+                            <div class="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-certificate text-xl text-red-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-800">Fully Licensed & Qualified</p>
+                                <p class="text-gray-500">EWRB Registered</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="text-center mb-12">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-image text-red-600"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-red-600">PORTFOLIO</h2>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Some Of Our Recent Work</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-xl shadow-lg zoom-on-hover">
+                    <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268319132435505152/086e6347-6b11-4362-9f2a-ad4dfdbe44ca.png" alt="Modern Auckland home lighting installation" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg zoom-on-hover">
+                    <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268319208939606016/df142c64-dabd-4f2e-8985-26598d3a7462.png" alt="Auckland retail store lighting" class="w-full h-64 object-cover">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg zoom-on-hover">
+                    <img src="https://storage.googleapis.com/storage.catbird.ai/predictions/268319294260121600/91272d95-0f33-4ef5-8283-c8ef39341216.png" alt="Auckland home exterior lighting" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-envelope text-red-600"></i>
+                    </div>
+                    <h2 class="text-xl font-semibold text-red-600">GET IN TOUCH</h2>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">We're Here To Answer All Your Questions</h3>
+                <p class="text-gray-600 text-lg max-w-3xl mx-auto">If you need to get in touch with us, please call 027 227 2233 or complete our form and we will respond to you as soon as possible. Our business hours are 8:00am - 5:00pm Monday to Friday</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="cascade-dark-bg p-6 md:p-8">
+                        <h4 class="text-2xl font-bold text-white mb-6">Contact Information</h4>
+                        <div class="space-y-5">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 mb-1">Phone Number</p>
+                                    <a href="tel:0272272233" class="text-white text-xl font-medium hover:text-red-400 transition duration-300">027 227 2233</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 mb-1">Email Address</p>
+                                    <a href="mailto:info@cascade.co.nz" class="text-white text-xl font-medium hover:text-red-400 transition duration-300">info@cascade.co.nz</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-clock text-red-500"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400 mb-1">Working Hours</p>
+                                    <p class="text-white text-xl font-medium">8:00am - 5:00pm Monday to Friday</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="text-xl font-bold text-white mb-4">Follow Us</h4>
+                            <div class="flex">
+                                <a href="#" class="w-10 h-10 bg-red-600 bg-opacity-20 rounded-full flex items-center justify-center hover:bg-red-600 transition duration-300">
+                                    <i class="fab fa-facebook-f text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h4>
+                        <form class="contact-form space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" id="name" placeholder="Your name" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-red-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-1">Email Address</label>
+                                    <input type="email" id="email" placeholder="Your email" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-red-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="Your phone number" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-red-500">
+                            </div>
+                            <div>
+                                <label for="service" class="block text-gray-700 mb-1">Service Required</label>
+                                <select id="service" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-red-500">
+                                    <option value="" selected disabled>Select a service</option>
+                                    <option value="commercial">Commercial</option>
+                                    <option value="residential">Residential</option>
+                                    <option value="maintenance">Maintenance</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-1">Your Message</label>
+                                <textarea id="message" rows="3" placeholder="Tell us about your project" class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-red-500"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-lg">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cascade-dark-bg text-white pt-12 pb-6">
+        <div class="container mx-auto px-4 md:px-0">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="assets/Cascade Electrical Logo (3).svg" alt="Cascade Electrical Logo" class="h-16 mb-4">
+                    <p class="text-gray-400 mb-6">Cascade Electrical is an Auckland based full service electrical company delivering expert, high quality workmanship, and honest, genuine advice.</p>
+                    <div class="flex">
+                        <a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Commercial Electrical</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Residential Electrical</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Maintenance & Repairs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Lighting Installation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Power Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#who-we-are" class="text-gray-400 hover:text-white transition duration-300">Who We Are</a></li>
+                        <li><a href="#what-we-do" class="text-gray-400 hover:text-white transition duration-300">What We Do</a></li>
+                        <li><a href="#why-choose-us" class="text-gray-400 hover:text-white transition duration-300">Why Choose Us?</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-red-500"></i>
+                            <div>
+                                <p class="text-gray-400">Phone</p>
+                                <a href="tel:0272272233" class="text-white hover:text-red-400 transition duration-300">027 227 2233</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-red-500"></i>
+                            <div>
+                                <p class="text-gray-400">Email</p>
+                                <a href="mailto:info@cascade.co.nz" class="text-white hover:text-red-400 transition duration-300">info@cascade.co.nz</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-red-500"></i>
+                            <div>
+                                <p class="text-gray-400">Working Hours</p>
+                                <p class="text-white">8:00am - 5:00pm</p>
+                                <p class="text-white">Monday to Friday</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2024 Cascade Electrical. All Rights Reserved.</p>
+                    <p class="text-gray-500 text-sm">Website Design © Copyright 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="tel:0272272233" class="btn-primary pulsing-btn w-16 h-16 rounded-full flex items-center justify-center shadow-xl">
+            <i class="fas fa-phone-alt text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Add this script at the end of your body tag -->
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        closeMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu when clicking on links
+        Array.from(mobileMenuLinks).forEach(link => {
+            link.addEventListener('click', toggleMobileMenu);
+        });
+    </script>
+</body>
+</html>
