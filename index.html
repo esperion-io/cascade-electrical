@@ -697,41 +697,39 @@
         });
 
         // Contact form validation
-        const contactForm = document.getElementById('contactForm');
-        const formError = document.getElementById('formError');
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            formError.classList.add('hidden');
-            formError.textContent = '';
-            let hasError = false;
-            // Get all fields
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-            const service = document.getElementById('service');
-            const message = document.getElementById('message');
-            // Remove previous error styles
-            [name, email, phone, service, message].forEach(field => {
-                field.classList.remove('border-red-500');
-            });
-            // Check for empty fields
-            if (!name.value.trim()) { name.classList.add('border-red-500'); hasError = true; }
-            if (!email.value.trim()) { email.classList.add('border-red-500'); hasError = true; }
-            if (!phone.value.trim()) { phone.classList.add('border-red-500'); hasError = true; }
-            if (!service.value) { service.classList.add('border-red-500'); hasError = true; }
-            if (!message.value.trim()) { message.classList.add('border-red-500'); hasError = true; }
-            if (hasError) {
-                formError.textContent = 'Please fill in all fields before submitting.';
-                formError.classList.remove('hidden');
-                return;
-            }
-            // If no error, you can proceed with form submission (e.g., AJAX or show success message)
-            formError.textContent = 'Thank you for your message!';
-            formError.classList.remove('hidden');
-            formError.classList.remove('bg-red-100', 'text-red-700');
-            formError.classList.add('bg-green-100', 'text-green-700');
-            contactForm.reset();
-        });
+const contactForm = document.getElementById('contactForm');
+const formError = document.getElementById('formError');
+
+contactForm.addEventListener('submit', function(e) {
+    formError.classList.add('hidden');
+    formError.textContent = '';
+    let hasError = false;
+
+    // Get all fields
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const service = document.getElementById('service');
+    const message = document.getElementById('message');
+
+    // Remove previous error styles
+    [name, email, phone, service, message].forEach(field => {
+        field.classList.remove('border-red-500');
+    });
+
+    // Check for empty fields
+    if (!name.value.trim()) { name.classList.add('border-red-500'); hasError = true; }
+    if (!email.value.trim()) { email.classList.add('border-red-500'); hasError = true; }
+    if (!phone.value.trim()) { phone.classList.add('border-red-500'); hasError = true; }
+    if (!service.value) { service.classList.add('border-red-500'); hasError = true; }
+    if (!message.value.trim()) { message.classList.add('border-red-500'); hasError = true; }
+
+    if (hasError) {
+        e.preventDefault(); // Only prevent form submission if there are errors
+        formError.textContent = 'Please fill in all fields before submitting.';
+        formError.classList.remove('hidden');
+    }
+});
     </script>
 </body>
 </html>
